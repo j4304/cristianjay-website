@@ -38,13 +38,13 @@ export default function RootLayout({
           {children}
         </main>
         
-        <footer className="bg-zinc-800 text-white text-center py-6 mt-auto">
+        {/* <footer className="bg-zinc-800 text-white text-center py-6 mt-auto">
           <div className="container mx-auto px-4">
             <p className="text-sm">
               © {new Date().getFullYear()} Cristian Jay. All rights reserved.
             </p>
           </div>
-        </footer>
+        </footer> */}
         
         <Analytics />
       </body>
