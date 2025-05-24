@@ -1,39 +1,39 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Contacts() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   subject: "",
+  //   message: "",
+  // });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     [name]: value
+  //   }));
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Handle form submission here
+  //   console.log("Form submitted:", formData);
+  //   // Reset form
+  //   setFormData({
+  //     name: "",
+  //     email: "",
+  //     subject: "",
+  //     message: "",
+  //   });
+  // };
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
+      {/* <div className="max-w-4xl mx-auto">
+
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Get In Touch
@@ -44,7 +44,7 @@ export default function Contacts() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
+
           <div>
             <h2 className="text-2xl font-bold mb-6">Let&apos;s Connect</h2>
             <div className="space-y-6">
@@ -92,7 +92,7 @@ export default function Contacts() {
                 </div>
               </div>
 
-              {/* Social Links */}
+
               <div className="pt-6">
                 <h3 className="font-semibold mb-4">Follow Me</h3>
                 <div className="flex space-x-4">
@@ -128,7 +128,7 @@ export default function Contacts() {
             </div>
           </div>
 
-          {/* Contact Form */}
+
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -204,7 +204,7 @@ export default function Contacts() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
