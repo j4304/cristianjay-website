@@ -27,14 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased min-h-screen flex flex-col">
-        <header className="bg-zinc-950 text-white shadow-lg sticky top-0 z-50">
+      <body className="bg-zinc-950 font-sans antialiased min-h-screen flex flex-col">
+        <header className="bg-zinc-950/50 backdrop-blur text-white shadow-lg sticky top-0 z-50 border-b border-zinc-500/20">
           <div className="container mx-auto px-4">
             <Navigation />
           </div>
         </header>
         
-        <main className="flex-1 bg-zinc-950 text-white ">
+        <main className="flex-1 text-white ">
           {children}
         </main>
         
