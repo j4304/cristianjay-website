@@ -11,11 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cristian Jay - Portfolio",
+  title: "Cristian Jay",
   description: "Personal portfolio website of Cristian Jay - Developer & Designer",
   keywords: ["Cristian Jay", "portfolio", "developer", "designer"],
   authors: [{ name: "Cristian Jay" }],
-  viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: "/jack.svg",
+  },
 };
 
 export default function RootLayout({
@@ -26,13 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <header className="bg-zinc-800 text-white shadow-lg sticky top-0 z-50">
+        <header className="bg-zinc-950 text-white shadow-lg sticky top-0 z-50">
           <div className="container mx-auto px-4">
             <Navigation />
           </div>
         </header>
         
-        <main className="flex-1">
+        <main className="flex-1 bg-zinc-950 text-white ">
           {children}
         </main>
         
