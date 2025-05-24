@@ -1,10 +1,9 @@
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function About() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
+      {/* <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             About Me
@@ -14,7 +13,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Main Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-2xl font-bold mb-6">My Story</h2>
@@ -59,7 +57,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Skills Section */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-center mb-8">Technical Skills</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -98,7 +95,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">Let&apos;s Work Together</h2>
           <p className="text-muted-foreground mb-6">
@@ -111,7 +107,7 @@ export default function About() {
             Get In Touch
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

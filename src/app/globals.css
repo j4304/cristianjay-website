@@ -119,35 +119,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.shine-effect {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.shine-effect::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  transform: skewX(-20deg);
-}
-
-.shine-effect:hover::before {
-  animation: shine 0.75s forwards;
-}
-
-@keyframe shine {
-  100% {
-    left: 125%;
-  }
-}

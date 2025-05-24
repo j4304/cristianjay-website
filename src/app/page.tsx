@@ -1,7 +1,12 @@
-// import Link from "next/link";
+"use client";
+import Canvas from "./canvas";
+import Hero from "./hero";
 
 export default function Home() {
   return (
-    <h1>.</h1>
+    <>
+      <Canvas />
+      <Hero />
+    </>
   );
 }
