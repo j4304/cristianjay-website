@@ -4,6 +4,8 @@ import TiltedCard from "@/components/tilted-card";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { images } from "@/lib/gallery-images"
+import { StaticImageData } from "next/image";
+
 
 export default function Gallery() {
   return (
@@ -47,8 +49,7 @@ export default function Gallery() {
   );
 }
 
-// 👇 Inline helper component
-function ImageWithSkeleton({ src, caption }: { src: string; caption: string }) {
+function ImageWithSkeleton({ src, caption }: { src: string | StaticImageData; caption: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -66,8 +67,6 @@ function ImageWithSkeleton({ src, caption }: { src: string; caption: string }) {
           captionText={caption}
           containerWidth="100%"
           containerHeight="auto"
-          imageWidth="100%"
-          imageHeight="auto"
           scaleOnHover={1.05}
           rotateAmplitude={10}
           showTooltip={true}

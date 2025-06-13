@@ -28,8 +28,8 @@ export const projectData: Project[] = [
 - Sales and analytics dashboard
 - Role-based user authentication`,
     techStacks: ["Figma", "FlutterFlow", "Supabase"],
-    posterImage: "/images/bigimbob-card.png",
-    images: ["/images/bigimbob/bigimbob-1.png", "/images/bigimbob/bigimbob-2.png", "/images/bigimbob/bigimbob-3.png", "/images/bigimbob/bigimbob-4.png", "/images/bigimbob/bigimbob-5.png", ],
+    posterImage: "/images/bigimbob-card.webp",
+    images: ["/images/bigimbob/bigimbob-1.webp", "/images/bigimbob/bigimbob-2.webp", "/images/bigimbob/bigimbob-3.webp", "/images/bigimbob/bigimbob-4.webp", "/images/bigimbob/bigimbob-5.webp", ],
   },
   {
     title: "Microbank",
@@ -52,8 +52,8 @@ export const projectData: Project[] = [
       "SQLite",
       "Resend",
     ],
-    posterImage: "/images/microbank-card.png",
-    images: ["/images/microbank/microbank-1.png", "/images/microbank/microbank-2.png", "/images/microbank/microbank-3.png", "/images/microbank/microbank-4.png", ],
+    posterImage: "/images/microbank-card.webp",
+    images: ["/images/microbank/microbank-1.webp", "/images/microbank/microbank-2.webp", "/images/microbank/microbank-3.webp", "/images/microbank/microbank-4.webp", ],
   },
   {
     title: "UMSDC Website",
@@ -75,8 +75,8 @@ export const projectData: Project[] = [
       "ExpressJS",
       "JWT",
     ],
-    posterImage: "/images/umsdc-card.png",
-    images: ["/images/umsdc/umsdc-1.png", "/images/umsdc/umsdc-2.png", "/images/umsdc/umsdc-3.png", "/images/umsdc/umsdc-4.png", "/images/umsdc/umsdc-5.png"],
+    posterImage: "/images/umsdc-card.webp",
+    images: ["/images/umsdc/umsdc-1.webp", "/images/umsdc/umsdc-2.webp", "/images/umsdc/umsdc-3.webp", "/images/umsdc/umsdc-4.webp", "/images/umsdc/umsdc-5.webp"],
   },
   {
     title: "UM GPA Calculator",
@@ -88,8 +88,8 @@ export const projectData: Project[] = [
 - Honors eligibility feedback
 - Clean, responsive UI`,
     techStacks: ["NextJS", "TypeScript", "ShadCN"],
-    posterImage: "/images/umgpa-card.png",
-    images: ["/images/umgpa/umgpa-1.png", "/images/umgpa/umgpa-2.png", "/images/umgpa/umgpa-3.png", ],
+    posterImage: "/images/umgpa-card.webp",
+    images: ["/images/umgpa/umgpa-1.webp", "/images/umgpa/umgpa-2.webp", "/images/umgpa/umgpa-3.webp", ],
   },
   {
     title: "PHPay",
@@ -101,8 +101,8 @@ export const projectData: Project[] = [
 - User account management
 - Transaction history`,
     techStacks: ["Java", "MySQL"],
-    posterImage: "/images/phpay-card.png",
-    images: ["/images/phpay/phpay-1.png", "/images/phpay/phpay-2.png", "/images/phpay/phpay-3.png", "/images/phpay/phpay-4.png", ],
+    posterImage: "/images/phpay-card.webp",
+    images: ["/images/phpay/phpay-1.webp", "/images/phpay/phpay-2.webp", "/images/phpay/phpay-3.webp", "/images/phpay/phpay-4.webp", ],
   },
   {
     title: "Intellistats",
@@ -113,7 +113,7 @@ export const projectData: Project[] = [
     features: `- Per-subject grade input
 - Grade summary display`,
     techStacks: ["PHP", "Bootstrap", "SQLite"],
-    posterImage: "/images/intellistats-card.png",
-    images: ["/images/intellistats/intellistats-1.png", "/images/intellistats/intellistats-2.png", "/images/intellistats/intellistats-3.png", ],
+    posterImage: "/images/intellistats-card.webp",
+    images: ["/images/intellistats/intellistats-1.webp", "/images/intellistats/intellistats-2.webp", "/images/intellistats/intellistats-3.webp", ],
   },
 ];

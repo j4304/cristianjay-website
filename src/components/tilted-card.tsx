@@ -1,23 +1,26 @@
 "use client";
+
 import type { SpringOptions } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 interface TiltedCardProps {
-  imageSrc: React.ComponentProps<"img">["src"];
+  imageSrc: string | StaticImageData;
   altText?: string;
   captionText?: string;
   containerHeight?: React.CSSProperties["height"];
   containerWidth?: React.CSSProperties["width"];
-  imageHeight?: React.CSSProperties["height"];
-  imageWidth?: React.CSSProperties["width"];
+  imageHeight?: number | `${number}`; // px value only
+  imageWidth?: number | `${number}`; // px value only
   scaleOnHover?: number;
   rotateAmplitude?: number;
   showMobileWarning?: boolean;
   showTooltip?: boolean;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
-  onLoadComplete?: () => void; // ✅ Add this line
+  onLoadComplete?: () => void;
 }
 
 const springValues: SpringOptions = {
@@ -32,13 +35,15 @@ export default function TiltedCard({
   captionText = "",
   containerHeight,
   containerWidth = "100%",
+  imageWidth = 600,
+  imageHeight = 800,
   scaleOnHover = 1.05,
   rotateAmplitude = 10,
   showMobileWarning = true,
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false,
-  onLoadComplete, // ✅ add this here
+  onLoadComplete,
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
@@ -89,15 +94,6 @@ export default function TiltedCard({
     rotateFigcaption.set(0);
   }
 
-  const imgRef = useRef<HTMLImageElement | null>(null); // 👈 add this
-
-  useEffect(() => {
-    if (imgRef.current && imgRef.current.complete) {
-      setIsLoaded(true);
-      onLoadComplete?.();
-    }
-  }, [onLoadComplete]);
-
   return (
     <figure
       ref={ref}
@@ -129,16 +125,19 @@ export default function TiltedCard({
           <div className="w-full aspect-[4/3] rounded-[15px] bg-neutral-300 animate-pulse" />
         )}
 
-        {/* Image with Lazy Loading */}
-        <motion.img
-          ref={imgRef} // 👈 add this
+        {/* ✅ Updated to Next.js Image */}
+        <Image
           src={imageSrc}
           alt={altText}
+          width={imageWidth}
+          height={imageHeight}
           className="w-full h-auto object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
           onLoad={() => {
             setIsLoaded(true);
             onLoadComplete?.();
           }}
+          placeholder="blur"
+          blurDataURL="/placeholder.webp"
         />
 
         {displayOverlayContent && overlayContent && (

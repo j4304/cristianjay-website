@@ -63,7 +63,7 @@ export default function About() {
                   handle="j4304"
                   status="Online"
                   contactText="Contact Me"
-                  avatarUrl="/images/cristianjay.png"
+                  avatarUrl="/images/cristianjay.webp"
                   miniAvatarUrl="/images/jack-icon.webp"
                   showBehindGradient
                   showUserInfo

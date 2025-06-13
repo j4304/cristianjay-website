@@ -115,6 +115,7 @@ const Projects = () => {
                             fill
                             priority
                             className="rounded-lg object-cover"
+                            // placeholder="blur"
                           />
                         </motion.div>
                       </Card>
