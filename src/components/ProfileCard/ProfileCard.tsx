@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
-import { useRouter } from "next/navigation"; // ✅ correct for App Router
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ProfileCardProps {
   avatarUrl: string;
@@ -262,13 +263,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
   const router = useRouter();
 
-const handleContactClick = useCallback(() => {
-  if (onContactClick) {
-    onContactClick(); // Still call this if you want to log or do additional logic
-  }
-  router.push("/contacts"); // Navigate to /contacts
-}, [onContactClick, router]);
-
+  const handleContactClick = useCallback(() => {
+    if (onContactClick) {
+      onContactClick(); // Still call this if you want to log or do additional logic
+    }
+    router.push("/contacts"); // Navigate to /contacts
+  }, [onContactClick, router]);
 
   return (
     <div
@@ -281,28 +281,32 @@ const handleContactClick = useCallback(() => {
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content pc-avatar-content">
-            <img
+            <Image
               className="avatar"
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-              }}
+              width={200} // Adjust to your card size
+              height={200}
+              priority={false}
+              quality={85}
+              onError={() => console.warn("Avatar failed to load.")}
             />
             {showUserInfo && (
               <div className="pc-user-info">
                 <div className="pc-user-details">
                   <div className="pc-mini-avatar">
-                    <img
+                    <Image
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = "0.5";
-                        target.src = avatarUrl;
+                      width={40}
+                      height={40}
+                      quality={80}
+                      onError={() =>
+                        console.warn("Mini avatar failed to load.")
+                      }
+                      style={{
+                        borderRadius: "50%",
+                        opacity: miniAvatarUrl ? 1 : 0.5,
                       }}
                     />
                   </div>

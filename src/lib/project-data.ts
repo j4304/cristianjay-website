@@ -89,7 +89,7 @@ export const projectData: Project[] = [
 - Clean, responsive UI`,
     techStacks: ["NextJS", "TypeScript", "ShadCN"],
     posterImage: "/images/umgpa-card.webp",
-    images: ["/images/umgpa/umgpa-1.webp", "/images/umgpa/umgpa-2.webp", "/images/umgpa/umgpa-3.webp", ],
+    images: ["/images/umgpa/umgpa-1.webp", "/images/umgpa/umgpa-2.webp"],
   },
   {
     title: "PHPay",
