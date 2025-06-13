@@ -17,7 +17,6 @@ const Canvas = () => {
       }}
     >
       <Suspense fallback={null}>
-        {/* <Perf position="top-left" /> */}
         <ThreeTunnel.Out />
       </Suspense>
     </R3fCanvas>
