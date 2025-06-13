@@ -11,7 +11,6 @@ import {
   AnimatePresence,
   Transition,
   type VariantLabels,
-  type Target,
 
   type TargetAndTransition,
 } from "framer-motion";
@@ -34,9 +33,9 @@ export interface RotatingTextProps
   > {
   texts: string[];
   transition?: Transition;
-  initial?: boolean | Target | VariantLabels;
+  initial?: boolean | TargetAndTransition | VariantLabels;
   animate?: boolean | VariantLabels | TargetAndTransition;
-  exit?: Target | VariantLabels;
+  exit?: TargetAndTransition | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
   rotationInterval?: number;

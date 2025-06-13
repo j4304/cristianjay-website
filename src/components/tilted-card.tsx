@@ -96,7 +96,7 @@ export default function TiltedCard({
       setIsLoaded(true);
       onLoadComplete?.();
     }
-  }, []);
+  }, [onLoadComplete]);
 
   return (
     <figure
