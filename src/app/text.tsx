@@ -1,40 +1,52 @@
 import { Text as DreiText } from "@react-three/drei";
+import { useSpring, a } from "@react-spring/three";
+import { memo } from "react";
 
-const Text = () => {
+// eslint-disable-next-line react/display-name
+const Text = memo(() => {
+  const cristianJaySpring = useSpring({
+    from: { y: -4 },
+    to: { y: 0.2 },
+    config: { mass: 1.2, tension: 80, friction: 30 },
+    delay: 300,
+  });
+
+  const cosepSpring = useSpring({
+    from: { y: -4 },
+    to: { y: 0.2 },
+    config: { mass: 1.2, tension: 80, friction: 30 },
+    delay: 700, 
+  });
+
   return (
-    <group position-y={0.2}>
-      <DreiText
-        // font="/fonts/Inter-Black.otf"
-        letterSpacing={-0.07}
-        fontSize={0.94}
-        renderOrder={1}
-        position-y={0.8}
-        color="#ffffff"
-      >
-     CRISTIAN JAY
-      </DreiText>
+    <>
+      <a.group position-y={cristianJaySpring.y}>
+        <DreiText
+          font="/fonts/Akira.otf"
+          letterSpacing={0.03}
+          fontSize={0.6}
+          renderOrder={1}
+          position={[-2.4, -2, 0]}
+          color="#ffffff"
+        >
+          CRISTIAN JAY
+        </DreiText>
+      </a.group>
 
-      <DreiText
-        letterSpacing={-0.07}
-        position-y={-0.12}
-        fontSize={0.94}
-        color="#ffffff"
-      >
-        COSEP
-      </DreiText>
-
-      <DreiText
-        maxWidth={4.2}
-        textAlign="center"
-        fontSize={0.1}
-        lineHeight={1.5}
-        position-y={-1}
-        color="white"
-      >
-        🚧 THIS WEBSITE IS CURRENTLY UNDER DEVELOPMENT. STAY TUNED! 🚧
-      </DreiText>
-    </group>
+      <a.group position-y={cosepSpring.y}>
+        <DreiText
+          font="/fonts/Akira.otf"
+          letterSpacing={0.03}
+          fontSize={0.6}
+          renderOrder={1}
+          position={[-3.9, -2.7, 0]}
+          color="#ffffff"
+        >
+          COSEP
+        </DreiText>
+      </a.group>
+    </>
   );
-};
+});
 
 export default Text;
