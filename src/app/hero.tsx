@@ -1,13 +1,14 @@
+// hero.tsx
 import { Environment, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, Suspense, useState } from "react";
 import { Group, MeshStandardMaterial, Object3D } from "three";
 import { Fluid } from "@whatisjery/react-fluid-distortion";
 import { ThreeTunnel } from "./tunnel";
 import Text from "./text";
 
-const JackModel = () => {
+const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
   const modelRef = useRef<Group>(null);
   const { scene } = useGLTF("/models/jack.glb");
 
@@ -17,11 +18,14 @@ const JackModel = () => {
         "material" in child &&
         child.material instanceof MeshStandardMaterial
       ) {
-        child.material.transparent = false; // no need to fade
-        child.material.opacity = 1; // show immediately
+        child.material.transparent = false;
+        child.material.opacity = 1;
       }
     });
-  }, [scene]);
+
+    // ✅ Notify when model is ready
+    onLoaded?.();
+  }, [scene, onLoaded]);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -40,7 +44,7 @@ const JackModel = () => {
         object={scene}
         ref={modelRef}
         scale={6}
-        position={[4, 6, -1]} // 👈 original
+        position={[4, 6, -1]}
         rotation={[Math.PI / 2, Math.PI, 0]}
       />
     </>
@@ -49,19 +53,36 @@ const JackModel = () => {
 
 useGLTF.preload("/models/jack.glb");
 
-const Hero = () => {
+const Hero = ({ onReady }: { onReady: () => void }) => {
+  const [modelReady, setModelReady] = useState(false);
+
+  useEffect(() => {
+    if (modelReady) onReady();
+  }, [modelReady, onReady]);
+
   return (
     <ThreeTunnel.In>
+      {/* Lighting and text render instantly */}
       <Text />
-      <JackModel />
-      <EffectComposer>
-        <Fluid
-          fluidColor="#212121"
-          backgroundColor="#000000"
-          blend={0.66}
-          rainbow={false}
-        />
-      </EffectComposer>
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[2, 20, 10]} intensity={0.6} />
+      <Environment preset="warehouse" />
+
+      {/* Model loads after */}
+      <Suspense fallback={null}>
+        <JackModel onLoaded={() => setModelReady(true)} />
+      </Suspense>
+
+      {modelReady && (
+        <EffectComposer>
+          <Fluid
+            fluidColor="#212121"
+            backgroundColor="#000000"
+            blend={0.66}
+            rainbow={false}
+          />
+        </EffectComposer>
+      )}
     </ThreeTunnel.In>
   );
 };

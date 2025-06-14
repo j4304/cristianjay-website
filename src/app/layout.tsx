@@ -1,9 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/navigation";
-import ReactLenis from "lenis/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,23 +24,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-zinc-950 font-sans antialiased min-h-screen flex flex-col ">
-        <ReactLenis root>
-          <header className="bg-zinc-950/50 backdrop-blur text-white shadow-lg sticky top-0 z-50 border-b border-zinc-500/20">
-            <div className="container mx-auto px-4">
-              <Navigation />
-            </div>
-          </header>
-
-          <main className="flex-1 text-white ">{children}</main>
-
-          <Analytics />
-        </ReactLenis>
+      <body className="bg-zinc-950 font-sans antialiased min-h-screen flex flex-col">
+        <header className="bg-zinc-950/50 backdrop-blur text-white shadow-lg sticky top-0 z-50 border-b border-zinc-500/20">
+          <div className="container mx-auto px-4">
+            <Navigation />
+          </div>
+        </header>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

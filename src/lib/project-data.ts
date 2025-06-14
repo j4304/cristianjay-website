@@ -1,3 +1,12 @@
+import microbankImg from "@/assets/images/microbank-card.webp";
+import bigimbobImg from "@/assets/images/bigimbob-card.webp";
+import umdscImg from "@/assets/images/umsdc-card.webp";
+import umgpaImg from "@/assets/images/umgpa-card.webp";
+import phpayImg from "@/assets/images/phpay-card.webp";
+import intellistatsImg from "@/assets/images/intellistats-card.webp";
+import { StaticImageData } from "next/image";
+
+
 export type Project = {
   title: string;
   description: string;
@@ -6,7 +15,7 @@ export type Project = {
   githubLabel?: string;
   liveLabel?: string;
   features: string;
-  posterImage: string;
+  posterImage: string | StaticImageData;
   techStacks?: string[];
   images: string[];
 };
@@ -28,7 +37,7 @@ export const projectData: Project[] = [
 - Sales and analytics dashboard
 - Role-based user authentication`,
     techStacks: ["Figma", "FlutterFlow", "Supabase"],
-    posterImage: "/images/bigimbob-card.webp",
+    posterImage: bigimbobImg,
     images: ["/images/bigimbob/bigimbob-1.webp", "/images/bigimbob/bigimbob-2.webp", "/images/bigimbob/bigimbob-3.webp", "/images/bigimbob/bigimbob-4.webp", "/images/bigimbob/bigimbob-5.webp", ],
   },
   {
@@ -52,7 +61,7 @@ export const projectData: Project[] = [
       "SQLite",
       "Resend",
     ],
-    posterImage: "/images/microbank-card.webp",
+    posterImage: microbankImg,
     images: ["/images/microbank/microbank-1.webp", "/images/microbank/microbank-2.webp", "/images/microbank/microbank-3.webp", "/images/microbank/microbank-4.webp", ],
   },
   {
@@ -75,7 +84,7 @@ export const projectData: Project[] = [
       "ExpressJS",
       "JWT",
     ],
-    posterImage: "/images/umsdc-card.webp",
+    posterImage: umdscImg,
     images: ["/images/umsdc/umsdc-1.webp", "/images/umsdc/umsdc-2.webp", "/images/umsdc/umsdc-3.webp", "/images/umsdc/umsdc-4.webp", "/images/umsdc/umsdc-5.webp"],
   },
   {
@@ -88,7 +97,7 @@ export const projectData: Project[] = [
 - Honors eligibility feedback
 - Clean, responsive UI`,
     techStacks: ["NextJS", "TypeScript", "ShadCN"],
-    posterImage: "/images/umgpa-card.webp",
+    posterImage: umgpaImg,
     images: ["/images/umgpa/umgpa-1.webp", "/images/umgpa/umgpa-2.webp"],
   },
   {
@@ -101,7 +110,7 @@ export const projectData: Project[] = [
 - User account management
 - Transaction history`,
     techStacks: ["Java", "MySQL"],
-    posterImage: "/images/phpay-card.webp",
+    posterImage: phpayImg,
     images: ["/images/phpay/phpay-1.webp", "/images/phpay/phpay-2.webp", "/images/phpay/phpay-3.webp", "/images/phpay/phpay-4.webp", ],
   },
   {
@@ -113,7 +122,7 @@ export const projectData: Project[] = [
     features: `- Per-subject grade input
 - Grade summary display`,
     techStacks: ["PHP", "Bootstrap", "SQLite"],
-    posterImage: "/images/intellistats-card.webp",
+    posterImage: intellistatsImg,
     images: ["/images/intellistats/intellistats-1.webp", "/images/intellistats/intellistats-2.webp", "/images/intellistats/intellistats-3.webp", ],
   },
 ];

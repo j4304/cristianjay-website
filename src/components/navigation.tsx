@@ -38,6 +38,7 @@ export default function Navigation() {
               <li key={href}>
                 <Link
                   href={href}
+                  prefetch
                   style={{ fontFamily: "Davetica, sans-serif" }}
                   className={`
                     relative px-2 py-1 text-sm font-medium uppercase tracking-wide transition-all duration-300

@@ -1,12 +1,20 @@
 import { Canvas as R3fCanvas } from "@react-three/fiber";
 import { ThreeTunnel } from "./tunnel";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 
-const Canvas = () => {
+const Canvas = ({ onReady }: { onReady: () => void }) => {
+  useEffect(() => {
+    // Trigger ready immediately for now — or you can delay until textures/models load
+    onReady();
+  }, [onReady]);
+
   return (
     <R3fCanvas
-      gl={{ antialias: false, powerPreference: "high-performance" }}
-      dpr={[1, 1.5]} // Lower pixel ratio on low-end devices
+      gl={{ antialias: true, powerPreference: "high-performance" }}
+      frameloop="always" // force continuous render
+      flat // skip unnecessary tone mapping
+      shadows={false}
+      dpr={[1, 1.5]}
       camera={{ fov: 40, near: 0.1, far: 1000, position: [0, 0, 10] }}
       style={{
         position: "fixed",

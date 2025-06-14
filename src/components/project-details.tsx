@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 import ImageCarousel from "./image-carousel";
 
@@ -28,7 +28,7 @@ interface ProjectDetailsProps {
   githubLabel?: string;
   liveLabel?: string;
   features: string;
-  posterImage: string;
+  posterImage: string | StaticImageData;
   techStacks?: string[];
   images: string[];
 }
@@ -61,7 +61,9 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               src={posterImage}
               alt={`${title} Poster`}
               fill
+              priority
               className="object-cover w-full h-full opacity-50 blur-sm"
+              placeholder="blur"
             />
           </div>
 

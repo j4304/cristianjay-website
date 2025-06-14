@@ -21,20 +21,32 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const failsafeRef = useRef<NodeJS.Timeout | null>(null);
 
-  const goToIndex = useCallback((index: number) => {
-    if (isLocked) return;
+  const goToIndex = useCallback(
+    (index: number) => {
+      if (isLocked) return;
 
-    setIsLocked(true);
-    setIsAnimating(true);
-    setCurrentIndex(index);
+      setIsLocked(true);
+      setIsAnimating(true);
+      setCurrentIndex(index);
 
-    // 🔐 Failsafe unlock in case transitionEnd doesn’t fire
-    if (failsafeRef.current) clearTimeout(failsafeRef.current);
-    failsafeRef.current = setTimeout(() => setIsLocked(false), transitionDuration + 100);
-  }, [isLocked]);
+      // 🔐 Failsafe unlock in case transitionEnd doesn’t fire
+      if (failsafeRef.current) clearTimeout(failsafeRef.current);
+      failsafeRef.current = setTimeout(
+        () => setIsLocked(false),
+        transitionDuration + 100
+      );
+    },
+    [isLocked]
+  );
 
-  const goToPrev = useCallback(() => goToIndex(currentIndex - 1), [currentIndex, goToIndex]);
-  const goToNext = useCallback(() => goToIndex(currentIndex + 1), [currentIndex, goToIndex]);
+  const goToPrev = useCallback(
+    () => goToIndex(currentIndex - 1),
+    [currentIndex, goToIndex]
+  );
+  const goToNext = useCallback(
+    () => goToIndex(currentIndex + 1),
+    [currentIndex, goToIndex]
+  );
 
   // autoplay
   useEffect(() => {
@@ -80,10 +92,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
               src={src}
               alt={`Slide ${idx}`}
               fill
+              priority
               sizes="(max-width: 768px) 100vw, 600px"
               className="object-cover"
               quality={80}
-              priority={idx === 1}
             />
           </div>
         ))}

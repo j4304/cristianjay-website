@@ -2,10 +2,10 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ProfileCardProps {
-  avatarUrl: string;
+  avatarUrl: string | StaticImageData;
   iconUrl?: string;
   grainUrl?: string;
   behindGradient?: string;
@@ -287,8 +287,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               alt={`${name || "User"} avatar`}
               width={200} // Adjust to your card size
               height={200}
-              priority={false}
-              quality={85}
+              priority
               onError={() => console.warn("Avatar failed to load.")}
             />
             {showUserInfo && (
@@ -300,7 +299,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                       alt={`${name || "User"} mini avatar`}
                       width={40}
                       height={40}
-                      quality={80}
+                      priority
                       onError={() =>
                         console.warn("Mini avatar failed to load.")
                       }

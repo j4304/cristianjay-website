@@ -7,6 +7,8 @@ import skillIconMap, { skillGroups } from "../../lib/skills";
 import { Download } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import cristianJayAvatar from "@/assets/images/cristianjay.webp";
+
 
 const TrueFocus = dynamic(() => import("@/components/TrueFocus/TrueFocus"), {
   ssr: false,
@@ -36,9 +38,9 @@ export default function About() {
     <LazyMotion features={domAnimation}>
       <div>
         <div className="container mx-auto mt-16 px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto text-white">
             {/* Header */}
-            <div className="text-center mb-16">
+            <div className="text-cente mb-16">
               <TrueFocus
                 sentence="About Me"
                 manualMode={false}
@@ -63,7 +65,7 @@ export default function About() {
                   handle="j4304"
                   status="Online"
                   contactText="Contact Me"
-                  avatarUrl="/images/cristianjay.webp"
+                  avatarUrl={cristianJayAvatar}
                   miniAvatarUrl="/images/jack-icon.webp"
                   showBehindGradient
                   showUserInfo
