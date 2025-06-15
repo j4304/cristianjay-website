@@ -16,13 +16,30 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Cristian Jay",
   description:
-    "Personal portfolio website of Cristian Jay - Developer & Designer",
+    "Personal portfolio website of Cristian Jay – Developer & Designer",
   keywords: ["Cristian Jay", "portfolio", "developer", "designer"],
   authors: [{ name: "Cristian Jay" }],
   icons: {
     icon: "/images/jack.svg",
   },
+  openGraph: {
+    title: "Cristian Jay",
+    description:
+      "Explore the portfolio of Cristian Jay – developer, designer, and creative problem-solver.",
+    url: "https://cristianjay.me",
+    siteName: "Cristian Jay",
+    images: [
+      {
+        url: "https://cristianjay.me/images/thumbnail.jpg", // 👈 Place your image in /public
+        width: 1200,
+        height: 630,
+        alt: "Cristian Jay Portfolio Preview",
+      },
+    ],
+    type: "website",
+  },
 };
+
 
 export default function RootLayout({
   children,
