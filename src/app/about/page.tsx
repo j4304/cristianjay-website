@@ -44,7 +44,7 @@ export default function About() {
               >
                 <ProfileCard
                   name="Cristian Jay Cosep"
-                  title="Creative Full-Stack Developer"
+                  title="Creative Software Developer"
                   handle="j4304"
                   status="Online"
                   contactText="Contact Me"
