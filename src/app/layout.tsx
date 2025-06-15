@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Cristian Jay",
     images: [
       {
-        url: "https://cristianjay.me/images/thumbnail.jpg", // 👈 Place your image in /public
+        url: "https://cristianjay.me/images/thumbnail.png", // 👈 Place your image in /public
         width: 1200,
         height: 630,
         alt: "Cristian Jay Portfolio Preview",
