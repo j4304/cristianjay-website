@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import Navigation from "@/components/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Navigation from "@/components/navigation";
+import LenisProvider from "@/components/lenis-provider"; // 👈 import here
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,11 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="bg-zinc-950 font-sans antialiased min-h-screen flex flex-col">
+        {/* Lenis behavior */}
+        <LenisProvider />
+
         <header className="bg-zinc-950/50 backdrop-blur text-white shadow-lg sticky top-0 z-50 border-b border-zinc-500/20">
           <div className="container mx-auto px-4">
             <Navigation />
           </div>
         </header>
+
         {children}
         <Analytics />
         <SpeedInsights />

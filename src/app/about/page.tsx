@@ -5,14 +5,9 @@ import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import skillIconMap, { skillGroups } from "../../lib/skills";
 import { Download } from "lucide-react";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import cristianJayAvatar from "@/assets/images/cristianjay.webp";
-
-
-const TrueFocus = dynamic(() => import("@/components/TrueFocus/TrueFocus"), {
-  ssr: false,
-});
+import TrueFocus from "@/components/TrueFocus/TrueFocus";
 
 const containerVariants = {
   hidden: {},
@@ -39,20 +34,8 @@ export default function About() {
       <div>
         <div className="container mx-auto mt-16 px-4">
           <div className="max-w-6xl mx-auto text-white">
-            {/* Header */}
-            <div className="text-cente mb-16">
-              <TrueFocus
-                sentence="About Me"
-                manualMode={false}
-                blurAmount={5}
-                borderColor="white"
-                animationDuration={2}
-                pauseBetweenAnimations={1}
-              />
-            </div>
-
             {/* Profile + Bio Section */}
-            <div className="grid md:grid-cols-[auto_1fr] gap-12 items-start mb-24">
+            <div className="grid md:grid-cols-[auto_1fr] gap-12 items-start mt-30">
               <m.div
                 className="flex justify-center md:justify-start"
                 initial={{ opacity: 0, x: -50 }}
@@ -82,7 +65,7 @@ export default function About() {
                 >
                   {/* My Story */}
                   <div>
-                    <h2 className="text-2xl font-bold mb-6">My Story</h2>
+                    <h2 className="text-2xl font-black mb-6">My Story</h2>
                     <div className="space-y-4 leading-relaxed text-justify">
                       <p>
                         Hey, I&apos;m Cristian Jay Cosep — a developer and
@@ -130,15 +113,17 @@ export default function About() {
             </div>
 
             {/* Technical Skills */}
-            <div className="mb-20">
-              <m.h2
-                className="text-2xl font-bold text-center mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
+            <m.div
+              className="mt-30 mb-20"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <m.h2 className="text-2xl font-bold text-center mb-8">
                 Technical Skills
               </m.h2>
+
               <div className="grid md:grid-cols-3 gap-6">
                 {skillGroups.map(({ title, skills }) => (
                   <m.div
@@ -148,15 +133,23 @@ export default function About() {
                         ? "md:col-span-3 flex justify-center"
                         : ""
                     }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.4 }}
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
                   >
                     <div className="w-full max-w-md">
                       <h3 className="font-semibold mb-4 text-lg text-center">
                         {title}
                       </h3>
-                      <div className="flex flex-wrap justify-center gap-3">
+                      <m.div
+                        className="flex flex-wrap justify-center gap-3"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.4 }}
+                      >
                         {skills.map((skill) => (
                           <m.div
                             key={skill}
@@ -167,15 +160,15 @@ export default function About() {
                             <span>{skill}</span>
                           </m.div>
                         ))}
-                      </div>
+                      </m.div>
                     </div>
                   </m.div>
                 ))}
               </div>
-            </div>
+            </m.div>
 
             {/* Quote */}
-            <div className="mb-20 text-center">
+            <div className="text-center">
               <m.div
                 className="inline-block px-6 py-4 text-white shadow-md"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -183,11 +176,26 @@ export default function About() {
                 transition={{ duration: 0.4 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <blockquote className="italic text-base md:text-lg tracking-tight">
+                <m.div
+                  className=" mb-24 flex justify-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.6 }}
+                >
+                  <TrueFocus
+                    sentence="Focused. Creative. Consistent."
+                    blurAmount={4}
+                    animationDuration={0.5}
+                    glowColor="rgba(255, 255, 255, 0.4)"
+                    borderColor="#00ff88"
+                  />
+                </m.div>
+                {/* <blockquote className="italic text-base md:text-lg tracking-tight">
                   “Start with no motivation, stay with humility and do it like
                   there&apos;s no tomorrow”
                 </blockquote>
-                <p className="mt-1 text-xs text-neutral-400">– Cristian Jay</p>
+                <p className="mt-1 text-xs text-neutral-400">– Cristian Jay</p> */}
               </m.div>
             </div>
 

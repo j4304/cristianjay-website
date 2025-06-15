@@ -37,7 +37,7 @@ export default function Home() {
         }`}
       >
         <Canvas onReady={() => setCanvasReady(true)} />
-        <Hero onReady={() => setHeroReady(true)} />
+        <Hero onReady={() => setHeroReady(true)} startAnimation={allReady} />
       </main>
     </>
   );

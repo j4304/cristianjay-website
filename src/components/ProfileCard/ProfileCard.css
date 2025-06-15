@@ -383,7 +383,7 @@
 .pc-details h3 {
   font-weight: 700;
   margin: 0;
-  font-size: min(4.5svh, 3em);
+  font-size: min(4svh, 3em);
   position: relative;
   background: linear-gradient(120deg, #ffffff, #dcdcdc, #ffffff);
   background-size: 200% auto;

@@ -15,6 +15,7 @@ const Canvas = ({ onReady }: { onReady: () => void }) => {
       flat // skip unnecessary tone mapping
       shadows={false}
       dpr={[1, 1.5]}
+      // camera={{ fov: 40, near: 0.1, far: 1000, position: [1, 3, 10] }}
       camera={{ fov: 40, near: 0.1, far: 1000, position: [0, 0, 10] }}
       style={{
         position: "fixed",

@@ -131,6 +131,7 @@ export default function TiltedCard({
           alt={altText}
           width={imageWidth}
           height={imageHeight}
+          priority
           className="w-full h-auto object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
           onLoad={() => {
             setIsLoaded(true);

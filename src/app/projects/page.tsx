@@ -55,21 +55,13 @@ const Projects = () => {
             <motion.div variants={container} className="px-8 md:px-24">
               <div className="inline-flex flex-wrap items-center gap-2 text-4xl font-bold">
                 <span className="whitespace-nowrap">Featured</span>
-                <motion.div
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-120%" }}
-                  transition={{ type: "spring", damping: 28, stiffness: 400 }}
-                  className="inline-flex px-4 py-2 text-white rounded-lg text-4xl font-bold shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                >
-                  <RotatingText
-                    texts={["Projects", "Works", "Solutions", "Developments"]}
-                    staggerFrom="last"
-                    staggerDuration={0.025}
-                    splitLevelClassName="overflow-hidden"
-                    rotationInterval={2000}
-                  />
-                </motion.div>
+                <RotatingText
+                  texts={["Projects", "Works", "Solutions", "Developments"]}
+                  staggerFrom="last"
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden"
+                  rotationInterval={2000}
+                />
               </div>
 
               <motion.p

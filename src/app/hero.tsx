@@ -47,7 +47,7 @@ const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
         ref={modelRef}
         scale={6}
         position={[4, 6, -1]}
-        rotation={[Math.PI / 2, Math.PI, 0]}
+        rotation={[1.9, Math.PI, 0]}
       />
     </>
   );
@@ -55,7 +55,7 @@ const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
 
 useGLTF.preload(MODEL_URL);
 
-const Hero = ({ onReady }: { onReady: () => void }) => {
+const Hero = ({ onReady, startAnimation }: { onReady: () => void; startAnimation: boolean }) => {
   const [modelReady, setModelReady] = useState(false);
 
   useEffect(() => {
@@ -64,13 +64,13 @@ const Hero = ({ onReady }: { onReady: () => void }) => {
 
   return (
     <ThreeTunnel.In>
-      {/* Lighting and text render instantly */}
-      <Text />
+      <Suspense fallback={null}>
+        <Text animate={startAnimation} />
+      </Suspense>
       <ambientLight intensity={0.6} />
       <directionalLight position={[2, 20, 10]} intensity={0.6} />
       <Environment preset="warehouse" />
 
-      {/* Model loads after */}
       <Suspense fallback={null}>
         <JackModel onLoaded={() => setModelReady(true)} />
       </Suspense>
@@ -88,5 +88,6 @@ const Hero = ({ onReady }: { onReady: () => void }) => {
     </ThreeTunnel.In>
   );
 };
+
 
 export default Hero;
