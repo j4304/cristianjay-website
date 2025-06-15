@@ -8,9 +8,12 @@ import { Fluid } from "@whatisjery/react-fluid-distortion";
 import { ThreeTunnel } from "./tunnel";
 import Text from "./text";
 
+const MODEL_URL = "https://yutlscdwom45uhjn.public.blob.vercel-storage.com/models/jack-rgIVo5UjrzycOiaKnNkZZBawpozquK.glb"
+// const MODEL_URL = "/models/jack.glb"
+
 const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
   const modelRef = useRef<Group>(null);
-  const { scene } = useGLTF("/models/jack.glb");
+  const { scene } = useGLTF(MODEL_URL);
 
   useEffect(() => {
     scene.traverse((child: Object3D) => {
@@ -23,7 +26,6 @@ const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
       }
     });
 
-    // ✅ Notify when model is ready
     onLoaded?.();
   }, [scene, onLoaded]);
 
@@ -51,7 +53,7 @@ const JackModel = ({ onLoaded }: { onLoaded: () => void }) => {
   );
 };
 
-useGLTF.preload("/models/jack.glb");
+useGLTF.preload(MODEL_URL);
 
 const Hero = ({ onReady }: { onReady: () => void }) => {
   const [modelReady, setModelReady] = useState(false);
